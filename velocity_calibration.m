@@ -18,3 +18,11 @@ for i=1:nx
     end
   end
 end
+for i=1:nx
+  for j=1:ny
+    if isfluid2(i,j)==0
+      U(i,j)= 0.0;
+      V(i,j)= 0.0;
+    end
+  end
+end

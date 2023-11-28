@@ -48,7 +48,7 @@ if methode==2 || methode==3 || methode==5 %%wall rotation available only in two 
     wall_rotation = replywall_rotation;
 end
 
-nx = 200;
+nx = 600;
 fprintf('nx = ? (default: %d)\n',nx);
 replynx = input('');
 if isempty(replynx)
@@ -56,7 +56,7 @@ if isempty(replynx)
 end
 nx = replynx;
 
-ny = 50;
+ny = 150;
 fprintf('ny = ? (default: %d)\n',ny);
 replyny = input('');
 if isempty(replyny)
@@ -65,7 +65,7 @@ end
 ny = replyny;
 
 
-Nu_physical= 1e-3;
+Nu_physical= 1e-3;  % Nu = 0.003 
 fprintf('Nu_physical = ? (default: %f)\n',Nu_physical);
 replyNu_physical = input('');
 if isempty(replyNu_physical)
@@ -74,7 +74,7 @@ end
 Nu_physical = replyNu_physical;
 
 
-channel_height=0.01;
+channel_height=0.01; %0.01 m
 fprintf('channel_height = ? (default: %f)\n',channel_height);
 replychannel_height = input('');
 if isempty(replychannel_height)
@@ -92,9 +92,9 @@ Uinitial = replyu;
 
 
 
-Nu = (Tau-0.5)/3 ;
+Nu = (Tau-0.5)/3 ;  %lattice kinematic viscosity
 Re=Uinitial*2*ny/Nu;
-Re_cylinder=Uinitial*2*R*3/(Tau-0.5);
+Re_cylinder=Uinitial*2*R/Nu;
 FD=R*Rhoinitial*Uinitial^2/105.6430/Re_cylinder;
 t_lattice=channel_height^2/ny^2/3*(Tau-1/2)/Nu_physical;
 dt=t_lattice;
