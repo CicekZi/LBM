@@ -92,7 +92,7 @@ Uinitial = replyu;
 
 
 
-Nu = (Tau-0.5)/3 ;  %lattice kinematic viscosity
+Nu = (Tau-0.5)/3 ;  %lattice kinematic viscosity where tau must be greater than 0.5
 Re=Uinitial*2*ny/Nu;
 Re_cylinder=Uinitial*2*R/Nu;
 FD=R*Rhoinitial*Uinitial^2/105.6430/Re_cylinder;
